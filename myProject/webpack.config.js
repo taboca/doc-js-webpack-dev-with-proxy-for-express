@@ -4,7 +4,7 @@ var SRC_DIR = path.resolve(__dirname, "src");
 var config = {
     devServer: {
       proxy: {
-        "/a/*": {
+        "/api/*": {
           target: "http://localhost:8090",
           secure: false,
           rewrite: function(req, options) {

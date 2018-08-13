@@ -173,3 +173,119 @@ devServer: {
 ```
 node app.js  
 ```
+
+## Setup the new AJAX component to load from the app.js express
+
+```
+npm install axios --save  
+
+```
+
+Add the component to the ./src/app directory
+
+```
+import React, { Component } from 'react';
+import axios from 'axios';
+
+class APITester extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading    : false,
+      status     : 'no data yet'
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    this.setState({loading:true})
+
+    var data = {
+      "argumentToJSON": "foo"
+    }
+
+    //     axios.post('/app_send', {data}) // this is like data:data ..
+    axios.post('/api/test', data)
+        .then(res => {
+          if(res.data.status=='ok') {
+            this.setState({loading: false, status: 'ok'});
+          };
+        });
+
+  }
+
+  render() {
+      if(!this.state.loading) {
+        return (
+          <div className="">
+            <form onSubmit={this.handleSubmit}>
+              <p>
+                Result: {this.state.status} <br />
+                <input type="submit" value="Call server" />
+              </p>
+            </form>
+          </div>
+        );
+      } else {
+        return (
+          <div className="">
+              <p>
+                loading...
+              </p>
+          </div>
+        );
+      }
+  }
+
+}
+
+export default APITester;
+
+```
+
+Update the App.js to include it :
+
+```
+import React, { Component } from 'react';
+import APITester from './APITester';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+          <h1 className="App-title">
+            Webpack development and API JSON via Proxy
+          </h1>
+
+          <APITester />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+```
+
+Run the Dev server  
+
+
+```
+npm run babel-start
+```
+
+Test
+
+```
+http://localhost:8080
+```
+
+In a nutshell:
+
+* You are calling your app from localhost:8080
+* Webpack generates all the output files (index.html, index.js etc in the dist directory)
+* Webpack will proxy to localhost:8090
+* Your app.js will answer /api/test

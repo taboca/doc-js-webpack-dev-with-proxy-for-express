@@ -87,3 +87,15 @@ module.exports = config;
 ```
 
 As you try to execute with "npm run build", in the first time, you should be prompted to install a cli tool.
+
+Do an initial test to check if the Webpack "npm run babel-start" script it properly generating your React code:
+
+```
+npm run babel-start
+```
+
+And test in the browser
+
+```
+http://localhost:8080
+```

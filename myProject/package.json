@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "babel-start": "npm run build",
+    "build": "webpack --mode development && cp src/index.html dist/index.html && webpack-dev-server --mode development --content-base src/ --inline --hot --history-api-fallback",
+    "build:prod": "webpack --mode production && cp src/index.html dist/index.html"
   },
   "author": "",
   "license": "ISC",
@@ -15,18 +18,14 @@
   "engines": {
     "node": "8.x.x"
   },
-  "scripts": {
-    "start": "node app.js",
-    "babel-start": "npm run build",
-    "build": "webpack --mode development && cp src/index.html dist/index.html && webpack-dev-server --mode development --content-base src/ --inline --hot --history-api-fallback",
-    "build:prod": "webpack --mode production && cp src/index.html dist/index.html"
-  },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   }
 }

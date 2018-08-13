@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import APITester from './APITester';
+//import APITester from './APITester';
 
 class App extends Component {
   render() {
@@ -8,7 +8,6 @@ class App extends Component {
           <h1 className="App-title">
             Webpack development and API JSON via Proxy
           </h1>
-          <APITester />
       </div>
     );
   }

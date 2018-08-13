@@ -38,7 +38,7 @@ And other preset definitions so that Babel can transpile ES2015, and React-based
 
 ```
 npm install react react-dom --save
-npm install webpack webpack-dev-server babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 --save-dev
+npm install webpack webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 --save-dev
 ```
 
 ## Setup scripts in the ./myProject/package.json
@@ -54,5 +54,36 @@ npm install webpack webpack-dev-server babel-loader babel-preset-es2015 babel-pr
 },
 ```
 
-
 ## Preparing your React-based app with Webpack and Babel (for ES6 and React support)
+
+Create your webpack.config.js
+
+```
+var path = require("path");
+var DIST_DIR = path.resolve(__dirname, "dist");
+var SRC_DIR = path.resolve(__dirname, "src");
+var config = {
+    entry: SRC_DIR + "/app/index.js",
+    output: {
+        path: DIST_DIR + "/app",
+        filename: "bundle.js",
+        publicPath: "/app/"
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js?/,
+                include: SRC_DIR,
+                loader: "babel-loader",
+                query: {
+                    presets: ["react", "es2015", "stage-2"]
+                }
+            }
+        ]
+    }
+};
+module.exports = config;
+
+```
+
+As you try to execute with "npm run build", in the first time, you should be prompted to install a cli tool.

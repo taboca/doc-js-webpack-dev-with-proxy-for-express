@@ -102,7 +102,7 @@ http://localhost:8080
 
 ## Let's make an Node-based Express-based app.js server for serving the API
 
-[Check the tree at this stage]()
+[Check the tree at this stage](https://github.com/taboca/doc-js-webpack-dev-with-proxy-for-express/tree/2c278a60adeb07b29fc55402d9753a651e500a90)
 
 ```
 'use strict';

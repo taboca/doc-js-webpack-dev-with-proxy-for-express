@@ -151,6 +151,8 @@ module.exports = app;
 
 ## Patching webpack.config.js to have a proxy
 
+[Check tree at this stage](https://github.com/taboca/doc-js-webpack-dev-with-proxy-for-express/tree/6da4a206ccfe8978e01937d705fa7cf694cb86e7)
+
 ```
 devServer: {
   proxy: {

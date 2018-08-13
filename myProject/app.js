@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/api/test', (req, res, next) => {
 
   var outputJSON = {
-    'status' : null
+    'status' : 'ok'
   }
 
   console.log("Data received from client: ")

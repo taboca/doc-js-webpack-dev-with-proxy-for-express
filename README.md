@@ -34,7 +34,6 @@ npm init
 
 ## Install React, React-DOM, Webpack, Webpack-dev-server
 
-Check the [tree]()
 And other preset definitions so that Babel can transpile ES2015, and React-based code.
 
 ```
@@ -43,6 +42,8 @@ npm install webpack webpack-dev-server babel-loader babel-preset-es2015 babel-pr
 ```
 
 ## Setup scripts in the ./myProject/package.json
+
+[Check so far tree at this stage](https://github.com/taboca/doc-js-webpack-dev-with-proxy-for-express/tree/8c2acc960ccb4ee9c043f160544b3cc0c964a929)
 
 ```
 "scripts": {

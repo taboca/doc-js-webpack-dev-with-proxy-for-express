@@ -148,3 +148,26 @@ app.listen(process.env.PORT || 8090, () => {
 module.exports = app;
 
 ```
+
+## Patching webpack.config.js to have a proxy
+
+```
+devServer: {
+  proxy: {
+    "/a/*": {
+      target: "http://localhost:8090",
+      secure: false,
+      rewrite: function(req, options) {
+        //you can handle rewrite here if you need to
+      }
+    },
+
+  }
+},
+
+```
+## Test your node.js app
+
+```
+node app.js  
+```

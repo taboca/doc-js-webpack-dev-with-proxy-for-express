@@ -1,4 +1,4 @@
-# doc-js-webpack-dev-with-proxy-for-express
+# Study notes - Webpack and a proxy for Express
 
 In this example, we will learn how to setup a React-based web app that is served from a local development server, and, at the same time, to have this application to load JSON data from another local server using Express. The logical issue that arises relates to cross-domain access; because your app is first served by the Webpack development server — let's say it comes from the localhost:8080. With that, XMLHTTPRequest access to other server-port is not allowed.
 
